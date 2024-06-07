@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import Image from 'next/image';
 
 export default function Home() {
 
@@ -33,7 +34,7 @@ export default function Home() {
         </Button>
       </div>
       <div className="relative bg-[#f8f8f8] rounded-md">
-        <img
+        <Image
           src="/spiderman.png"
           alt="Featured Movie"
           width={1600}
@@ -44,7 +45,7 @@ export default function Home() {
           <h1 className="text-5xl font-bold text-white">Spider-Man: Into The Spider Verse</h1>
           <p className="text-white mt-4">
             Spider-Man: Across the Spider-Verse, now zipping into the theater-verse, is the long-awaited follow-up to
-            2018's "Spider-Man: Into the Spider-Verse," a revelatory thrill ride that deservedly won the Oscar for
+            2018&apos;s &quot;Spider-Man: Into the Spider-Verse,&quot; a revelatory thrill ride that deservedly won the Oscar for
             animation.
           </p>
           <Button variant="secondary" className="mt-4">
@@ -62,7 +63,7 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {movies.map((movie, i) => (
             <div key={i} className="bg-white rounded-sm relative">
-              <img
+              <Image
               //@ts-ignore
                 src={movie.banner_image}
                 //@ts-ignore
