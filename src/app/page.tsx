@@ -7,13 +7,14 @@ import Image from 'next/image';
 export default function Home() {
 
   const [movies, setMovies] = useState([]);
-
+  const [isLoaded,setIsLoaded] = useState(false);
   useEffect(() => {
     const fetchMovies = async () => {
       try {
         const response = await fetch('/api/movies');
         const data = await response.json();
         setMovies(data);
+        setIsLoaded(true);
       } catch (error) {
         console.error('Error fetching movies:', error);
       }
@@ -61,7 +62,7 @@ export default function Home() {
       <div className="py-8">
         <h2 className="text-3xl font-bold mb-6">Movies</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {movies.map((movie, i) => (
+          {isLoaded && movies.map((movie, i) => (
             <div key={i} className="bg-white rounded-sm relative">
               <Image
               //@ts-ignore
